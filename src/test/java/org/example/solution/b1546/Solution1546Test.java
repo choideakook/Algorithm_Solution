@@ -18,7 +18,7 @@ class Solution1546Test {
     @Test
     void n2() {
         double result = solution.solution(3, 10, 20, 30);
-        assertThat(result).isEqualTo(66.66);
+        assertThat(result).isEqualTo(66.66666666666667);
     }
 
     @Test
@@ -54,6 +54,6 @@ class Solution1546Test {
     @Test
     void n8() {
         double result = solution.solution(9,10,20,30,40,50,60,70,80,90);
-        assertThat(result).isEqualTo(55.55);
+        assertThat(result).isEqualTo(55.55555555555556);
     }
 }
