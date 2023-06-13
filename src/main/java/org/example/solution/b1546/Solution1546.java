@@ -1,6 +1,5 @@
 package org.example.solution.b1546;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Solution1546 {
