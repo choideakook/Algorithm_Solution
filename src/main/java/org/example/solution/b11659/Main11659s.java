@@ -1,32 +1,28 @@
 package org.example.solution.b11659;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.StringTokenizer;
+import java.util.*;
+import java.io.*;
 
 public class Main11659s {
-
-    public static void main(String[] args) throws IOException {
-
+    public static void main (String[] args) throws IOException{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer tk = new StringTokenizer(br.readLine());
 
-        int N = Integer.parseInt(tk.nextToken());
-        int M = Integer.parseInt(tk.nextToken());
+        int length = Integer.parseInt(tk.nextToken()) + 1;
+        int tern = Integer.parseInt(tk.nextToken());
 
-        long[] S = new long[N + 1];
+        int[] S = new int[length];
 
-        S[0] = 0;
-        for (int i = 1; i < N + 1; i++)
-            S[i] = S[i - 1] + Integer.parseInt(tk.nextToken());
+        tk = new StringTokenizer(br.readLine());
+        for(int i = 1; i < length; i++)
+            S[i] = S[i -1] + Integer.parseInt(tk.nextToken());
 
-        for (int i = 0; i < M; i++){
-            int start = Integer.parseInt(tk.nextToken());
-            int end = Integer.parseInt(tk.nextToken());
+        for (int i = 0; i < tern; i++) {
+            tk = new StringTokenizer(br.readLine());
+            int first = Integer.parseInt(tk.nextToken()) - 1;
+            int last = Integer.parseInt(tk.nextToken());
 
-            System.out.println(S[end] - S[start - 1]);
+            System.out.println(S[last] - S[first]);
         }
     }
-
 }
