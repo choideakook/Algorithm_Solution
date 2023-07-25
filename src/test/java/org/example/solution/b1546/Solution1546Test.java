@@ -21,4 +21,9 @@ class Solution1546Test {
         int sum = S[5] - S[2 - 1];
         System.out.println(sum);
     }
+
+    @Test
+    void no2() {
+
+    }
 }
