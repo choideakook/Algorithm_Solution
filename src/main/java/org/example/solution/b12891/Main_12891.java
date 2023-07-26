@@ -13,38 +13,61 @@ import java.util.*;
 import java.io.*;
 
 public class Main_12891 {
+
+    int[] passwd = new int[4];
+
     public static void main(String[] args) throws IOException {
+        System.out.println(new Main_12891().solution());
+    }
+
+    public int solution() throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer tk = new StringTokenizer(br.readLine());
 
         int S = Integer.parseInt(tk.nextToken());
-        int P = Integer.parseInt(tk.nextToken());
+        int P = Integer.parseInt(tk.nextToken()) - 1;
 
         tk = new StringTokenizer(br.readLine());
         String dna = tk.nextToken();
 
         tk = new StringTokenizer(br.readLine());
-        ArrayList<Integer> term = new ArrayList<>();
+        int[] standard = new int[4];
         for (int i = 0; i < 4; i++)
-            term.add(Integer.parseInt(tk.nextToken()));
+            standard[i] = Integer.parseInt(tk.nextToken());
 
-        int str = 0, end = P, count = 0;
-
-        while (end <= S) {
-            String pw = dna.substring(str, end);
-            boolean check = false;
-
-            if (pw.replace("A", "").length() <= P - term.get(0)
-                    && pw.replace("C", "").length() <= P - term.get(1)
-                    && pw.replace("G", "").length() <= P - term.get(2)
-                    && pw.replace("T", "").length() <= P - term.get(3)
-            ) check = true;
-
-            if (check) count++;
-            str++;
-            end++;
+        char[] chars = dna.substring(0, P + 1).toCharArray();
+        for (int i = 0; i < chars.length; i++) {
+            add(chars[i]);
         }
 
-        System.out.println(count);
+        int count = 0;
+        for (int i = P; i < S; i++) {
+            if (
+                    standard[0] <= passwd[0] &&
+                    standard[1] <= passwd[1] &&
+                    standard[2] <= passwd[2] &&
+                    standard[3] <= passwd[3]
+            ) count++;
+
+            if (i + 1 < S){
+                add(dna.charAt(i + 1));
+                remove(dna.charAt(i - P));
+            }
+        }
+        return count;
+    }
+
+    void add(char cha) {
+        if (cha == 'A') passwd[0]++;
+        else if (cha == 'C') passwd[1]++;
+        else if (cha == 'G') passwd[2]++;
+        else passwd[3]++;
+    }
+
+    void remove(char cha) {
+        if (cha == 'A') passwd[0]--;
+        else if (cha == 'C') passwd[1]--;
+        else if (cha == 'G') passwd[2]--;
+        else passwd[3]--;
     }
 }
