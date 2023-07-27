@@ -12,45 +12,37 @@ package org.example.solution.b11286;
  */
 
 import java.util.*;
+import java.io.*;
 
 public class Main_11286 {
-    public static void main(String[] args){
-        Scanner sc = new Scanner(System.in);
-        List<Integer> min = new ArrayList<>();
-        List<Integer> plu = new ArrayList<>();
-        int N = sc.nextInt();
+    public static void main(String[] args) throws IOException{
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int N = Integer.parseInt(br.readLine());
 
-        for(int i = 0; i < N; i++){
-            int num = sc.nextInt();
+        PriorityQueue<Integer> queue = new PriorityQueue<>((o1, o2) ->{
 
-            if (num < 0) min.add(num);
-            else if (num > 0) plu.add(num);
+            // 절댓값으로 변경//
+            int fri = Math.abs(o1);
+            int sec = Math.abs(o2);
 
+            // 재배치 //
+            if (fri == sec)
+                // 더 큰 수의 우선순위를 낮춤
+                return o1 > o2 ? 1 :-1;
+
+            // 2번째가 더 클경우 음수가 반환됨 --> 음수의 우선순위가 높아짐
+            return fri - sec;
+        });
+
+        for (int i = 0; i < N; i++) {
+            int num = Integer.parseInt(br.readLine());
+
+            if (num != 0) queue.add(num);
             else {
-                if (min.size() > 1) Collections.sort(min);
-                if (plu.size() > 1) Collections.sort(plu);
-                int index = min.size() - 1;
-
-                if(plu.size() == 0 && min.size() == 0)
-                    System.out.println(0);
-
-                else if (plu.size() == 0 && min.size() != 0) {
-                    System.out.println(min.get(index));
-                    min.remove(index);
-                }
-                else if (plu.size() != 0 && min.size() == 0){
-                    System.out.println(plu.get(0));
-                    plu.remove(0);
-                }
-
-                else if (Math.abs(min.get(index)) <= plu.get(0)) {
-                    System.out.println(min.get(index));
-                    min.remove(index);
-                }
-                else if(Math.abs(min.get(index)) > plu.get(0)){
-                    System.out.println(plu.get(0));
-                    plu.remove(0);
-                }
+                if (queue.isEmpty())
+                    System.out.println("0");
+                else
+                    System.out.println(queue.poll());
             }
         }
     }
