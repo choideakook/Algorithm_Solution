@@ -1,7 +1,7 @@
 package org.example.solution.b2750;
 
 /**
- * 수 정렬하기
+ * 수 정렬하기 - priority queue 로 풀어보기
  */
 
 import java.io.*;
