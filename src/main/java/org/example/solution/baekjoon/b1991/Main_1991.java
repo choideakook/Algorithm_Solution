@@ -32,12 +32,12 @@ public class Main_1991 {
 
             map.put(key, list);
         }
-//        preorder("A", map.get("A").get(0), map.get("A").get(1));
-//        inorder("A", map.get("A").get(0), map.get("A").get(1));
+        preorder("A", map.get("A").get(0), map.get("A").get(1));
+        inorder("A", map.get("A").get(0), map.get("A").get(1));
         postorder("A", map.get("A").get(0), map.get("A").get(1));
 
-//        System.out.println(A);
-//        System.out.println(B);
+        System.out.println(A);
+        System.out.println(B);
         System.out.println(C);
     }
 
@@ -60,6 +60,12 @@ public class Main_1991 {
             inorder(right, map.get(right).get(0), map.get(right).get(1));
     }
     static void postorder(String key, String left, String right){
+        if (!left.equals("."))
+            postorder(left, map.get(left).get(0), map.get(left).get(1));
 
+        if (!right.equals("."))
+            postorder(right, map.get(right).get(0), map.get(right).get(1));
+
+        C.append(key);
     }
 }
