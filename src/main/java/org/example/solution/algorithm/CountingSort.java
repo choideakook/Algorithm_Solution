@@ -2,6 +2,9 @@ package org.example.solution.algorithm;
 
 /**
  * arr 의 범위 : -1,000,000 <= arr <= 1,000,000
+ *
+ * 같은 값을 가지는 index 가 없을 때 사용 가능하다.
+ * O(n) 으로 매우 빠른 시간복잡도를 갖는다.
  */
 public class CountingSort {
     public static int[] solution(int[] arr) {
