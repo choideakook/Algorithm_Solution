@@ -1,5 +1,6 @@
 package org.example.solution.b11659;
 
+import org.example.solution.baekjoon.b11659.Main11659;
 import org.junit.jupiter.api.Test;
 
 class Main11659Test {

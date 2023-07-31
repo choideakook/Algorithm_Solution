@@ -1,5 +1,6 @@
 package org.example.solution.p42860;
 
+import org.example.solution.programers.p42860.Solution;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;

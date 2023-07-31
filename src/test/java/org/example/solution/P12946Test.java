@@ -1,6 +1,6 @@
 package org.example.solution;
 
-import org.example.solution.p12946.P12946;
+import org.example.solution.programers.p12946.P12946;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
