@@ -40,12 +40,12 @@ public class Main_2042 {
             st = new StringTokenizer(br.readLine());
             int a = Integer.parseInt(st.nextToken());
             int start = Integer.parseInt(st.nextToken()) + square - 1;
-            int c = Integer.parseInt(st.nextToken());
+            long c = Long.parseLong(st.nextToken());
 
             if (a == 1) update(start, tree[start] - c);
 
             else {
-                sum(start, c + square - 1);
+                sum(start, (int) c + square - 1);
                 System.out.println(result);
                 result = 0;
             }
