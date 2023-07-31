@@ -4,8 +4,6 @@ package org.example.solution.algorithm;
  * 병합 정렬
  */
 
-import java.io.*;
-
 public class MergeSort {
 
     public static int[] solution(int[] arr) {
@@ -50,6 +48,7 @@ public class MergeSort {
         int index = start;
 
 
+        // 두개의 포인터 비교 후 원본 배열에 최신화
         while (part1 <= mid && part2 <= end) {
             if (tmp[part1] <= tmp[part2]) {
                 arr[index] = tmp[part1];
@@ -61,6 +60,7 @@ public class MergeSort {
             index++;
         }
 
+        // 첫번째 임시 배열이 남아있다면 원본 배열에 업데이트
         for(int i = 0; i <= mid - part1; i++)
             arr[index + i] = tmp[part1 + i];
     }
