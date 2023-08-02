@@ -15,27 +15,72 @@ import java.io.*;
 
 public class Main_1012 {
 
-    static ArrayList<Integer>[] con;
-    static boolean[] check;
-    static int count;
+    static int[] dx = {1, 0, -1, 0};
+    static int[] dy = {0, 1, 0, -1};
+    static int[][] con;
+    static int M, N, K, result;
+
 
     public static void main (String[] args) throws IOException{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-
-        int T = Integer.parseInt(br.readLine());
-        for(int i = 0; i < T; i++) reset(br);
-    }
-
-    static void reset(BufferedReader br) throws IOException {
         StringTokenizer st = new StringTokenizer(br.readLine());
 
-        int M = Integer.parseInt(st.nextToken());
-        int N = Integer.parseInt(st.nextToken());
-        int K = Integer.parseInt(st.nextToken());
+        int T = Integer.parseInt(st.nextToken());
 
-        con = new ArrayList[K];
-        check = new boolean[K];
-        count = 0;
+        for (int i = 0; i < T; i++) {
+            st = new StringTokenizer(br.readLine());
+
+            M = Integer.parseInt(st.nextToken());
+            N = Integer.parseInt(st.nextToken());
+            K = Integer.parseInt(st.nextToken());
+
+            counting(st, br);
+
+            System.out.println(result);
+            result = 0;
+        }
     }
+    static void counting(StringTokenizer st, BufferedReader br) throws IOException {
+        con = new int[N][M];
 
+        for (int i = 0; i < K; i++) {
+            st = new StringTokenizer(br.readLine());
+            int X = Integer.parseInt(st.nextToken());
+            int Y = Integer.parseInt(st.nextToken());
+
+            con[Y][X] = 1;
+        }
+        BFS();
+    }
+    static void BFS() {
+        Queue<int[]> queue = new LinkedList<>();
+
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < M; j++) {
+
+                if (con[i][j] == 1){
+                    queue.add(new int[] {i, j});
+                    con[i][j] = 0;
+                    result ++;
+
+                    while (!queue.isEmpty()){
+                        int[] now = queue.poll();
+
+                        for (int k = 0; k < 4; k++) {
+                            int Y = now[0] + dy[k];
+                            int X = now[1] + dx[k];
+
+                            if (X >= 0 && Y >= 0 &&
+                                    X < M && Y < N &&
+                                    con[Y][X] != 0
+                            ){
+                                queue.add(new int[]{Y, X});
+                                con[Y][X] = 0;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
