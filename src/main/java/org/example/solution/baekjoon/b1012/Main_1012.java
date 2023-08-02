@@ -36,9 +36,6 @@ public class Main_1012 {
         con = new ArrayList[K];
         check = new boolean[K];
         count = 0;
-
-        for(int i = 0; i < )
-
     }
 
 }
