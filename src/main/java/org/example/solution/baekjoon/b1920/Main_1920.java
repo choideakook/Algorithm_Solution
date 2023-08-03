@@ -46,11 +46,16 @@ public class Main_1920 {
             return;
         }
 
-        while(start <= end) {
+        while(true) {
             int mid = (start + end) / 2;
 
             if (target == list.get(mid)) {
                 System.out.println(1);
+                break;
+            }
+
+            else if (start == end){
+                System.out.println(0);
                 break;
             }
 
