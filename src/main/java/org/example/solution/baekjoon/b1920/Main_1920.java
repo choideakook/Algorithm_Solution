@@ -46,7 +46,7 @@ public class Main_1920 {
             return;
         }
 
-        while(true) {
+        while(start <= end) {
             int mid = (start + end) / 2;
 
             if (target == list.get(mid)) {
@@ -54,12 +54,7 @@ public class Main_1920 {
                 break;
             }
 
-            else if (start == end){
-                System.out.println(0);
-                break;
-            }
-
-            else if (target < list.get(mid)) end = mid;
+            else if (target < list.get(mid)) end = mid - 1;
 
             else if (target > list.get(mid)) start = mid + 1;
         }
