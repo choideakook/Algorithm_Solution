@@ -13,34 +13,36 @@ import java.util.*;
 
 public class Main_2331 {
 
-    static ArrayList<String> D;
-    static int P;
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        D = new ArrayList<>();
-        D.add(sc.next());
-        P = sc.nextInt();
+        Map<String, Integer> check = new HashMap<>();
+        List<String> D = new ArrayList<>();
 
-        String sum = cal(D.get(0));
+        String A = sc.next();
+        int P = sc.nextInt();
 
-        while (!D.contains(sum)){
-            D.add(sum);
-            sum = cal(sum);
+        while (true) {
+            if (!D.contains(A)) D.add(A);
+            else
+                if (check.get(A) == null) check.put(A, 1);
+
+                else if (check.get(A) > 2) break;
+
+                else check.put(A, check.get(A) + 1);
+
+            int sum = 0;
+
+            for(int i =0; i < A.length(); i++)
+                sum += Math.pow(A.charAt(i) - '0', P);
+
+            A = String.valueOf(sum);
         }
 
-        D.remove(sum);
+        for(String key : check.keySet())
+            D.remove(key);
+
         System.out.println(D.size());
-    }
-
-    static String cal(String index) {
-        int sum = 0;
-
-        for (int i = 0; i < index.length(); i++){
-            int num = index.charAt(i) - 0;
-            sum += Math.pow(num, P);
-        }
-        return String.valueOf(sum);
     }
 }
