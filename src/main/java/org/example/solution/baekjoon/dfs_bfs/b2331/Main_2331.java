@@ -12,8 +12,6 @@ package org.example.solution.baekjoon.dfs_bfs.b2331;
 import java.util.*;
 
 public class Main_2331 {
-
-
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
