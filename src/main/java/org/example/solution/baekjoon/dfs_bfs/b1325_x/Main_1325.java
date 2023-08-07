@@ -1,4 +1,4 @@
-package org.example.solution.baekjoon.dfs_bfs.b1325;
+package org.example.solution.baekjoon.dfs_bfs.b1325_x;
 
 /**
  * 효율적인 해킹
@@ -28,10 +28,7 @@ public class Main_1325 {
 
         N = Integer.parseInt(st.nextToken()) + 1;
         M = Integer.parseInt(st.nextToken());
-
-        visited = new boolean[N];
         list = new ArrayList[N];
-        trust = new int[N];
 
         for (int i = 1; i < N; i++)
             list[i] = new ArrayList<>();
@@ -46,29 +43,32 @@ public class Main_1325 {
         }
 
         for (int i = 1; i < N; i++) {
-            DFS(i, 0);
+            if (trust[i] == 0) {
+                visited = new boolean[N];
+                trust = new int[N];
+                trust[i]++;
+                BFS(i);
+            }
 
-            if (trust[i] > max) {
-                set.clear();
-                set.add(i);
-                max = trust[i];
-            } else if (trust[i] == max) set.add(i);
+
         }
         for (int i : set)
             System.out.println(i + " ");
     }
 
-    static void DFS(int i, int pro) {
+    static void BFS(int i) {
         stack.push(i);
-        trust[i]++;
+        visited[i] = true;
 
-        while (!stack.isEmpty()) {
+
+        while (!stack.isEmpty()){
             stack.pop();
 
             for (int node : list[i])
-                if (!visited[node])
-                    DFS(node, i);
-            if ()
+                if (!visited[node]) {
+                    BFS(node);
+
+                }
         }
     }
 }
