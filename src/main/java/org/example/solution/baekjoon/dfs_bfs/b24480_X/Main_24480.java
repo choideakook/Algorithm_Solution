@@ -1,4 +1,4 @@
-package org.example.solution.baekjoon.dfs_bfs.b24480;
+package org.example.solution.baekjoon.dfs_bfs.b24480_X;
 
 /**
  * 알고리즘 수업 - 깊이 우선 탐색 2
