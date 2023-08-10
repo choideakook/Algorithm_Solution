@@ -1,4 +1,4 @@
-package org.example.solution.baekjoon.basic.b2798;
+package org.example.solution.baekjoon.basic.b2798_brute_force;
 
 /**
  * 블랙잭
