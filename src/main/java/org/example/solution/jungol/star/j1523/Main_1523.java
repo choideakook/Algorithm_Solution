@@ -4,7 +4,7 @@ package org.example.solution.jungol.star.j1523;
  * 별삼각형 1
  * 시간 1,000 ms
  *
- * N = hight ( 1 ~ 100 )
+ * N = high ( 1 ~ 100 )
  * M = kind
  *
  */
