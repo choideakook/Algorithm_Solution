@@ -10,21 +10,18 @@ package org.example.solution.baekjoon.greedy.b5585;
 import java.util.*;
 
 public class Main_5585 {
-    static int[] coin = {500, 100, 50, 10, 5, 1};
-    static int money, count;
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        money = 1000 - sc.nextInt();
+
+        int[] coin = {500, 100, 50, 10, 5, 1};
+        int money = 1000 - sc.nextInt();
+        int count = 0;
 
         for (int i : coin)
-            if (i <= money)
-                count += greedy(i);
-
+            if (i <= money){
+                count += money / i;
+                money = money % i;
+            }
         System.out.println(count);
-    }
-    static int greedy(int coin) {
-        int num = money / coin;
-        money = money % coin;
-        return num;
     }
 }
