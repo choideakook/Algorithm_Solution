@@ -1,4 +1,4 @@
-package org.example.solution.baekjoon.basic.b11399;
+package org.example.solution.baekjoon.greedy.b11399;
 
 /**
  * ATM
@@ -8,8 +8,12 @@ package org.example.solution.baekjoon.basic.b11399;
  * P = working time
  */
 
-import java.io.*;
-import java.util.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.StringTokenizer;
 
 public class Main_11399 {
     public static void main(String[] args) throws IOException {

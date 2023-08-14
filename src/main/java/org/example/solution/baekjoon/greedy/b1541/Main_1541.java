@@ -1,4 +1,4 @@
-package org.example.solution.baekjoon.b1541;
+package org.example.solution.baekjoon.greedy.b1541;
 
 /**
  * 잃어버린 괄호
