@@ -18,8 +18,8 @@ public class Main_11000 {
         int N = Integer.parseInt(br.readLine());
         PriorityQueue<int[]> queue = new PriorityQueue<>((o1 ,o2) ->{
             if (o1[0] == o2[0])
-                return o1[0] - o2[0];
-            return o1[1] - o2[1];
+                return o1[1] - o2[1];
+            return o1[0] - o2[0];
         });
 
         for (int i = 0; i < N; i++) {
@@ -29,26 +29,16 @@ public class Main_11000 {
             queue.add(new int[] {A, B});
         }
 
-        ArrayList<Integer> list = new ArrayList<>();
-        list.add(queue.poll()[1]);
-        boolean check = false;
+        PriorityQueue<Integer> Q = new PriorityQueue<>();
 
         while (!queue.isEmpty()){
             int[] poll = queue.poll();
 
-            for(int i = 0; i < list.size(); i++){
-                if (list.get(i) <= poll[0]){
-                    list.set(i, poll[1]);
-                    check = true;
-                    break;
-                }
-            }
-            if (check){
-                check = false;
-                continue;
-            }
-            list.add(poll[1]);
+            if (!Q.isEmpty() && Q.peek() <= poll[0])
+                Q.poll();
+
+            Q.add(poll[1]);
         }
-        System.out.println(list.size());
+        System.out.println(Q.size());
     }
 }
