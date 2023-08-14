@@ -16,32 +16,29 @@ public class Main_11000 {
         StringTokenizer st;
 
         int N = Integer.parseInt(br.readLine());
-        int[][] arr = new int[N][2];
+        PriorityQueue<int[]> queue = new PriorityQueue<>((o1 ,o2) ->{
+            if (o1[0] == o2[0])
+                return o1[0] - o2[0];
+            return o1[1] - o2[1];
+        });
 
         for (int i = 0; i < N; i++) {
             st = new StringTokenizer(br.readLine());
-            arr[i][0] = Integer.parseInt(st.nextToken());
-            arr[i][1] = Integer.parseInt(st.nextToken());
+            int A = Integer.parseInt(st.nextToken());
+            int B = Integer.parseInt(st.nextToken());
+            queue.add(new int[] {A, B});
         }
-        Arrays.sort(arr, new Comparator<int[]>(){
-            @Override
-            public int compare(int[] o1, int[] o2) {
-                if (o1[0] == o2[0])
-                    return o1[0] - o2[0];
-                return o1[1] - o2[1];
-            }
-        });
 
         ArrayList<Integer> list = new ArrayList<>();
-        list.add(arr[0][1]);
+        list.add(queue.poll()[1]);
         boolean check = false;
 
-        for (int i = 1; i < N; i++) {
-            int loop = list.size();
+        while (!queue.isEmpty()){
+            int[] poll = queue.poll();
 
-            for (int j = 0; j < loop; j++) {
-                if (list.get(j) <= arr[i][0]) {
-                    list.set(j, arr[i][1]);
+            for(int i = 0; i < list.size(); i++){
+                if (list.get(i) <= poll[0]){
+                    list.set(i, poll[1]);
                     check = true;
                     break;
                 }
@@ -50,7 +47,7 @@ public class Main_11000 {
                 check = false;
                 continue;
             }
-            list.add(arr[i][1]);
+            list.add(poll[1]);
         }
         System.out.println(list.size());
     }
