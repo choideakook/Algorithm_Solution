@@ -22,11 +22,12 @@ public class Main_1715 {
             Q.add(sc.nextLong());
 
         while (!Q.isEmpty()){
+            if (N == 1) break;
+
             long sum = Q.poll() + Q.poll();
             result += sum;
 
             if (Q.size() != 0) Q.add(sum);
-
             else if (Q.size() == 1) result += Q.poll();
         }
         System.out.println(result);
