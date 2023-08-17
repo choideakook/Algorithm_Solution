@@ -3,7 +3,7 @@ package org.example.solution.baekjoon.greedy.b1339;
 /**
  * 단어 수학
  * 시간 2초
- * <p>
+ *
  * N = word length ( 1 ~ 10 )
  */
 
