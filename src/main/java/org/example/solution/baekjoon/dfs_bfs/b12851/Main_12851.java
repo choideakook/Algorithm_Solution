@@ -11,39 +11,42 @@ package org.example.solution.baekjoon.dfs_bfs.b12851;
 import java.util.*;
 
 public class Main_12851 {
-    static int N, K, result, count;
-    static int[] walk =  {1, -1};
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        N = sc.nextInt();
-        K = sc.nextInt();
+        int answer = 0, count = 0;
+        int N = sc.nextInt();
+        int K = sc.nextInt();
+
+        int max = Math.max(N, K);
+        int min = Math.min(N, K) - 2;
+
+        boolean[] visited = new boolean[max + 3];
+        visited[max + 2] = true;
 
         Queue<int[]> Q = new LinkedList<>();
         int[] now = {K, 0};
         Q.add(now);
 
-        while (true){
+        while (!Q.isEmpty()){
             now = Q.poll();
+            visited[now[0]] = true;
 
-            for (int i = 0; i < 3; i++) {
-                if (i < 2)
-                    Q.add(new int[] {now[0] + walk[i], now[1] + 1});
-                else
-                    if(now[0] % 2 != 0) continue;
-                    else Q.add(new int[] {now[0] / 2, now[1] + 1});
-            }
+            if (count > 0 && answer < now[1]) break;
 
             if (now[0] == N) {
-                if (result == 0) {
-                    result = now[1];
-                    count++;
-                }
-                else if (result == now[1])
-                    count++;
-                else if (result < now[1])
-                    break;
+                if (answer == 0) answer = now[1];
+
+                count++;
+                visited[now[0]] = false;
+                continue;
             }
+            if(now[0] % 2 == 0 && !visited[now[0] / 2])
+                Q.add(new int[] {now[0] / 2, now[1] + 1});
+            if(now[0] - 1 > min && now[0] - 1 >= 0 && !visited[now[0] - 1])
+                Q.add(new int[] {now[0] - 1, now[1] + 1});
+            if(!visited[now[0] + 1])
+                Q.add(new int[] {now[0] + 1, now[1] + 1});
         }
-        System.out.println(result + "\n" + count);
+        System.out.println(answer + "\n" + count);
     }
 }
