@@ -35,9 +35,7 @@ public class Main_12851 {
 
             if (now[0] == N) {
                 if (answer == 0) answer = now[1];
-
                 count++;
-                visited[now[0]] = false;
                 continue;
             }
             if(now[0] % 2 == 0 && !visited[now[0] / 2])
