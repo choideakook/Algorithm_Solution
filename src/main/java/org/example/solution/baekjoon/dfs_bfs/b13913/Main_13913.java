@@ -23,37 +23,35 @@ public class Main_13913 {
         visited[max + 2] = true;
 
         Queue<Move> Q = new LinkedList<>();
-        ArrayList<Integer> list = new ArrayList<>();
 
-        visited[N] = Q.add(new Move(N, 0, list));
+        visited[N] = Q.add(new Move(N, 0, new StringBuilder()));
 
         while (!Q.isEmpty()) {
             Move now = Q.poll();
 
             if (now.gN() == K){
                 System.out.println(now.gC());
-                for(int i : now.list)
-                    System.out.print(i + " ");
+                System.out.println(now.gS());
                 break;
             }
 
             if (!visited[now.gN() + 1])
                 visited[now.gN() + 1] = Q.add(new Move(
-                        now.gN() + 1, now.gC() + 1, now.gL()
+                        now.gN() + 1, now.gC() + 1, now.gS()
                 ));
             if (now.gN() - 1 >= 0 && now.gN() -1 >= min && !visited[now.gN() - 1])
                 visited[now.gN() - 1] = Q.add(new Move(
-                        now.gN() - 1, now.gC() + 1, now.gL()
+                        now.gN() - 1, now.gC() + 1, now.gS()
                 ));
             if (now.gN() * 2 < visited.length && !visited[now.gN() * 2])
                 visited[now.gN() * 2] = Q.add(new Move(
-                        now.gN() * 2, now.gC() + 1, now.gL()
+                        now.gN() * 2, now.gC() + 1, now.gS()
                 ));
         }
     }
     static class Move{
         private int now, count;
-        private List<Integer> list = new ArrayList<>();
+        private StringBuilder sb = new StringBuilder();
 
         public int gN() {
             return this.now;
@@ -61,15 +59,14 @@ public class Main_13913 {
         public int gC() {
             return this.count;
         }
-        public List<Integer> gL() {
-            return this.list;
+        public StringBuilder gS() {
+            return this.sb;
         }
 
-        public Move(int now, int count, List<Integer> list) {
+        public Move(int now, int count, StringBuilder sb) {
             this.now = now;
             this.count = count;
-            for (int i : list) this.list.add(i);
-            this.list.add(now);
+            this.sb.append(sb).append(now + " ");
         }
     }
 }
