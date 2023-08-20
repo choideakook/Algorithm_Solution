@@ -16,10 +16,9 @@ public class Main_13913 {
         int N = sc.nextInt();
         int K = sc.nextInt();
 
-        int max = Math.max(N, K);
+        int min = Math.min(N, K) - 10;
 
-        boolean[] visited = new boolean[100002];
-        visited[100001] = true;
+        boolean[] visited = new boolean[100001];
 
         Queue<Move> Q = new LinkedList<>();
 
@@ -34,15 +33,15 @@ public class Main_13913 {
                 break;
             }
 
-            if (!visited[now.gN() + 1])
+            if (!visited[now.gN() + 1] && now.gN() < K)
                 visited[now.gN() + 1] = Q.add(new Move(
                         now.gN() + 1, now.gC() + 1, now.gS()
                 ));
-            if (now.gN() - 1 >= 0  && !visited[now.gN() - 1])
+            if (now.gN() - 1 >= 0 && now.gN() -1 >= min && !visited[now.gN() - 1])
                 visited[now.gN() - 1] = Q.add(new Move(
                         now.gN() - 1, now.gC() + 1, now.gS()
                 ));
-            if (now.gN() * 2 < visited.length && !visited[now.gN() * 2])
+            if (now.gN() * 2 < visited.length && !visited[now.gN() * 2] && now.gN() < K)
                 visited[now.gN() * 2] = Q.add(new Move(
                         now.gN() * 2, now.gC() + 1, now.gS()
                 ));
