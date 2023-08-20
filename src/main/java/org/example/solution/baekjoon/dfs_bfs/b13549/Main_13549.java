@@ -32,7 +32,6 @@ public class Main_13549 {
                 System.out.println(now[1]);
                 break;
             }
-
             if(now[0] % 2 == 0 && !visited[now[0] / 2])
                 visited[now[0]] = Q.add(new int[] {now[0] / 2, now[1]});
 
