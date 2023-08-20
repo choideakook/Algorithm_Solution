@@ -17,7 +17,7 @@ public class Main_13913 {
         int K = sc.nextInt();
 
         int max = Math.max(N, K);
-        int min = Math.min(N, K) - 2;
+        int min = Math.min(N, K) - 10;
 
         boolean[] visited = new boolean[max + 3];
         visited[max + 2] = true;
@@ -37,10 +37,6 @@ public class Main_13913 {
                 break;
             }
 
-            if (now.gN() * 2 < visited.length && !visited[now.gN() * 2])
-                visited[now.gN() * 2] = Q.add(new Move(
-                        now.gN() * 2, now.gC() + 1, now.gL()
-                ));
             if (!visited[now.gN() + 1])
                 visited[now.gN() + 1] = Q.add(new Move(
                         now.gN() + 1, now.gC() + 1, now.gL()
@@ -48,6 +44,10 @@ public class Main_13913 {
             if (now.gN() - 1 >= 0 && now.gN() -1 >= min && !visited[now.gN() - 1])
                 visited[now.gN() - 1] = Q.add(new Move(
                         now.gN() - 1, now.gC() + 1, now.gL()
+                ));
+            if (now.gN() * 2 < visited.length && !visited[now.gN() * 2])
+                visited[now.gN() * 2] = Q.add(new Move(
+                        now.gN() * 2, now.gC() + 1, now.gL()
                 ));
         }
     }
