@@ -28,8 +28,18 @@ public class Main_13913 {
             Move now = Q.poll();
 
             if (now.gN() == K){
-                System.out.println(now.gC());
-                System.out.println(now.gS());
+                result(now.gC(), now.gS());
+                break;
+            }
+
+            if (now.gN() > K){
+                StringBuilder sb = now.gS();
+                int count = now.gC();
+                for (int i = now.gN(); i != K; i--) {
+                    count++;
+                    sb.append(i + " ");
+                }
+                result(count, sb);
                 break;
             }
 
@@ -47,6 +57,10 @@ public class Main_13913 {
                 ));
         }
     }
+    static void result(int count, StringBuilder sb){
+        System.out.println(count);
+        System.out.println(sb);
+    }
     static class Move{
         private int now, count;
         private StringBuilder sb = new StringBuilder();
@@ -60,7 +74,6 @@ public class Main_13913 {
         public StringBuilder gS() {
             return this.sb;
         }
-
         public Move(int now, int count, StringBuilder sb) {
             this.now = now;
             this.count = count;
