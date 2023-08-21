@@ -1,4 +1,4 @@
-package org.example.solution.baekjoon.dfs_bfs.b14226;
+package org.example.solution.baekjoon.dfs_bfs.b14226_x;
 
 /**
  * 이모티콘
