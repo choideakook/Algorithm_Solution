@@ -22,26 +22,26 @@ public class Main_1202 {
 
         int N = Integer.parseInt(st.nextToken());
         int K = Integer.parseInt(st.nextToken());
-        int result = 0;
+        long result = 0;
 
-        ArrayList<Integer> bags = new ArrayList<>();
-        int[][] gems = new int[N][2];
+        ArrayList<Long> bags = new ArrayList<>();
+        long[][] gems = new long[N][2];
 
         for (int i = 0; i < N; i++) {
             st = new StringTokenizer(br.readLine());
-            gems[i][0] = Integer.parseInt(st.nextToken());
-            gems[i][1] = Integer.parseInt(st.nextToken());
+            gems[i][0] = Long.parseLong(st.nextToken());
+            gems[i][1] = Long.parseLong(st.nextToken());
         }
         for (int i = 0; i < K; i++)
-            bags.add(Integer.parseInt(br.readLine()));
+            bags.add(Long.parseLong(br.readLine()));
 
         Collections.sort(bags);
-        Arrays.sort(gems, new Comparator<int[]>() {
+        Arrays.sort(gems, new Comparator<long[]>() {
             @Override
-            public int compare(int[] o1, int[] o2) {
-                if (o1[1] == o2[1])
-                    return o1[0] - o2[0];
-                return o2[1] - o1[1];
+            public int compare(long[] o1, long[] o2) {
+                if (o1[0] == o2[0])
+                    return (int) (o2[1] - o1[1]);
+                return (int) (o1[0] - o2[0]);
             }
         });
 
