@@ -27,7 +27,7 @@ public class Main_1202 {
         PriorityQueue<Long> bags = new PriorityQueue<>();
         PriorityQueue<long[]> gem = new PriorityQueue<>(((o1, o2) -> {
             if (o1[0] == o2[0])
-                return (int) (o2[1] - o2[1]);
+                return (int) (o2[1] - o1[1]);
             return (int) (o1[0] - o2[0]);
         }));
 
