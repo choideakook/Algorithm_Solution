@@ -24,35 +24,28 @@ public class Main_1202 {
         int K = Integer.parseInt(st.nextToken());
         long result = 0;
 
-        ArrayList<Long> bags = new ArrayList<>();
-        long[][] gems = new long[N][2];
+        PriorityQueue<Long> bags = new PriorityQueue<>();
+        PriorityQueue<long[]> gem = new PriorityQueue<>(((o1, o2) -> {
+            if (o1[0] == o2[0])
+                return (int) (o2[1] - o2[1]);
+            return (int) (o1[0] - o2[0]);
+        }));
 
         for (int i = 0; i < N; i++) {
             st = new StringTokenizer(br.readLine());
-            gems[i][0] = Long.parseLong(st.nextToken());
-            gems[i][1] = Long.parseLong(st.nextToken());
+            long M = Long.parseLong(st.nextToken());
+            long V = Long.parseLong(st.nextToken());
+
+            gem.add(new long[] {M, V});
         }
         for (int i = 0; i < K; i++)
             bags.add(Long.parseLong(br.readLine()));
 
-        Collections.sort(bags);
-        Arrays.sort(gems, new Comparator<long[]>() {
-            @Override
-            public int compare(long[] o1, long[] o2) {
-                if (o1[0] == o2[0])
-                    return (int) (o2[1] - o1[1]);
-                return (int) (o1[0] - o2[0]);
-            }
-        });
+        while (!bags.isEmpty() && !gem.isEmpty()){
+            Long bag = bags.poll();
 
-        for (int i = 0; i < N; i++) {
-            if (bags.size() == 0) break;
-
-            for (int j = 0; j < bags.size(); j++)
-                if (gems[i][0] <= bags.get(j)) {
-                    result += gems[i][1];
-                    bags.remove(j);
-                }
+            if (bag >= gem.peek()[0])
+                result += gem.poll()[1];
         }
         System.out.println(result);
     }
