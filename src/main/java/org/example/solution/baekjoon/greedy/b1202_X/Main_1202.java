@@ -1,4 +1,4 @@
-package org.example.solution.baekjoon.greedy.b1202;
+package org.example.solution.baekjoon.greedy.b1202_X;
 
 /**
  * 보석 도둑
