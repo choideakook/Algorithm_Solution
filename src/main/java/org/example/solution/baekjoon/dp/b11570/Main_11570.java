@@ -37,7 +37,8 @@ public class Main_11570 {
                 compare(Math.abs(map[i] - pre[0]),
                         Math.abs(map[i] - pre[1]), map[i]);
         }
-        System.out.println(A + B);
+        if (A + B == 0) System.out.println(1);
+        else System.out.println(A + B);
     }
     static void startB(int i){
         if (map[i] == pre[1])
