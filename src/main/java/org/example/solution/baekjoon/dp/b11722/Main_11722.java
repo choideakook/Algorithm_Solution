@@ -12,8 +12,7 @@ import java.util.*;
 import java.io.*;
 
 public class Main_11722 {
-    static int[] A = new int[1001];
-    static int[] D = new int[1001];
+    static int[] D = new int[1002];
     static int result;
 
     public static void main(String[] args) throws IOException{
@@ -22,25 +21,19 @@ public class Main_11722 {
 
         StringTokenizer st = new StringTokenizer(br.readLine());
 
-        for (int i = 0; i < N; i++)
-            A[i] = Integer.parseInt(st.nextToken());
-
-        D[0] = 1;
+        D[0] = Integer.parseInt(st.nextToken());
 
         for (int i = 1; i < N; i++) {
-            if (A[i - 1] > A[i]) D[i] = D[i - 1] + 1;
-            else if (A[i - 1] == A[i]) D[i] = D[i - 1];
-            else D[i] = search(i);
+            int index = Integer.parseInt(st.nextToken());
 
-            if (D[i] > result) result = D[i];
+            for (int j = 0; j < 1001; j++)
+                if (D[j] < index) {
+                    D[j] = index;
+                    if (D[j + 1] == 0) result = j + 1;
+                    break;
+                }else if (D[j] == index)
+                    break;
         }
         System.out.println(result);
-    }
-    static int search(int i){
-        for (int j = i - 1; j >= 0; j--) {
-            if (A[i] < A[j]) return D[j] + 1;
-            else if (A[i] == A[j]) return D[j];
-        }
-        return 1;
     }
 }
