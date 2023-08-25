@@ -12,16 +12,14 @@ import java.util.*;
 import java.io.*;
 
 public class Main_11722 {
-    static int[] D = new int[1002];
-    static int result;
-
     public static void main(String[] args) throws IOException{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int N = Integer.parseInt(br.readLine());
+        int[] D = new int[1002];
 
         StringTokenizer st = new StringTokenizer(br.readLine());
-
         D[0] = Integer.parseInt(st.nextToken());
+        int result = 1;
 
         for (int i = 1; i < N; i++) {
             int index = Integer.parseInt(st.nextToken());
