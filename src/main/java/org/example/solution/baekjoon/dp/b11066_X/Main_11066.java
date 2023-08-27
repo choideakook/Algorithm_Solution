@@ -1,4 +1,4 @@
-package org.example.solution.baekjoon.dp.b11066;
+package org.example.solution.baekjoon.dp.b11066_X;
 
 /**
  * 파일 합치기
