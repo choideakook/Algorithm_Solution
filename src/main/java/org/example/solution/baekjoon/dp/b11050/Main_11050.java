@@ -5,7 +5,7 @@ package org.example.solution.baekjoon.dp.b11050;
  * 시간 1초
  * <p>
  * N = length ( 1 ~ 10 )
- * K = pick ( 1 ~ 10 )
+ * K = pick ( 0 ~ N )
  */
 
 import java.util.*;
@@ -20,12 +20,9 @@ public class Main_11050 {
 
         D = new int[N + 1][K + 1];
         for (int i = 1; i <= N; i++) D[i][1] = i;
-        for (int i = 1; i <= K; i++) D[i][i] = i;
+        for (int i = 1; i <= K; i++) D[i][i] = 1;
+        if (N > 1 && K > 1) DP(N, K);
 
-        if (N > 1 && K > 1) {
-            D[2][2] = 1;
-            DP(N, K);
-        }
         System.out.println(D[N][K]);
     }
     static void DP(int n, int k) {
