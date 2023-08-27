@@ -19,7 +19,7 @@ public class Main_11050 {
         int K = sc.nextInt();
 
         if (K == 0)
-            System.out.println(0);
+            System.out.println(1);
         else if (N == K)
             System.out.println(1);
         else {
