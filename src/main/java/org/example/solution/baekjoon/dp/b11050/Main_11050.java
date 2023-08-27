@@ -18,9 +18,7 @@ public class Main_11050 {
         int N = sc.nextInt();
         int K = sc.nextInt();
 
-        if (K == 0)
-            System.out.println(1);
-        else if (N == K)
+        if (K == 0 || N == K)
             System.out.println(1);
         else {
             D = new int[N + 1][K + 1];
