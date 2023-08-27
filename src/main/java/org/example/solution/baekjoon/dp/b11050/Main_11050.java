@@ -18,12 +18,16 @@ public class Main_11050 {
         int N = sc.nextInt();
         int K = sc.nextInt();
 
-        D = new int[N + 1][K + 1];
-        for (int i = 1; i <= N; i++) D[i][1] = i;
-        for (int i = 1; i <= K; i++) D[i][i] = 1;
-        if (N > 1 && K > 1) DP(N, K);
+        if (K == 0)
+            System.out.println(0);
+        else {
+            D = new int[N + 1][K + 1];
+            for (int i = 1; i <= N; i++) D[i][1] = i;
+            for (int i = 1; i <= K; i++) D[i][i] = 1;
+            if (N > 1 && K > 1) DP(N, K);
 
-        System.out.println(D[N][K]);
+            System.out.println(D[N][K]);
+        }
     }
     static void DP(int n, int k) {
         if (D[n - 1][k] == 0) DP(n - 1, k);
