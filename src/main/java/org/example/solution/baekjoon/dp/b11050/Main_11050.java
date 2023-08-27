@@ -20,6 +20,8 @@ public class Main_11050 {
 
         if (K == 0)
             System.out.println(0);
+        else if (N == K)
+            System.out.println(1);
         else {
             D = new int[N + 1][K + 1];
             for (int i = 1; i <= N; i++) D[i][1] = i;
