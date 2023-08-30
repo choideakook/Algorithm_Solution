@@ -1,4 +1,4 @@
-package org.example.solution.baekjoon.dp.b11049;
+package org.example.solution.baekjoon.dp.b11049_X;
 
 /**
  * 행렬 곱셈 순서
