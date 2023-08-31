@@ -13,7 +13,7 @@ public class Solution_12945 {
         int rest = 1234567;
 
         for (int i = 3; i <= n; i++)
-            D[i] = (D[i - 1] % rest)  + (D[i - 2] % rest);
+            D[i] = (D[i - 1] + D[i - 2]) % rest;
         return D[n];
     }
 }
