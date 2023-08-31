@@ -16,6 +16,6 @@ public class Solution_12945 {
     }
     void DP(int n) {
         if (D[n - 1] == 0) DP(n - 1);
-        D[n] = D[n - 1] + D[n - 2];
+        D[n] = (D[n - 1] % 1234567) + (D[n - 2] % 1234567);
     }
 }
