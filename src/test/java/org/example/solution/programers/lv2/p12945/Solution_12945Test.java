@@ -15,17 +15,4 @@ class Solution_12945Test {
         Solution_12945 S = new Solution_12945();
         assertThat(S.solution(5)).isEqualTo(5);
     }
-
-    @Test
-    void no3() {
-        Solution_12945 S = new Solution_12945();
-        assertThat(S.solution(50)).isEqualTo(5);
-    }
-    @Test
-    void no0() {
-        int i = 10;
-        long k = i;
-
-        System.out.println(k);
-    }
 }

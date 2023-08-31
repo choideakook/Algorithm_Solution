@@ -10,12 +10,10 @@ public class Solution_12945 {
         D = new long[n + 1];
         D[1] = 1;
         D[2] = 1;
+        int rest = 1234567;
 
-        if (n > 2) DP(n);
+        for (int i = 3; i <= n; i++)
+            D[i] = (D[i - 1] % rest)  + (D[i - 2] % rest);
         return D[n];
-    }
-    void DP(int n) {
-        if (D[n - 1] == 0) DP(n - 1);
-        D[n] = (D[n - 1] % 1234567) + (D[n - 2] % 1234567);
     }
 }
