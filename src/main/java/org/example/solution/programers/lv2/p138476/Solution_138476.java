@@ -11,7 +11,7 @@ import java.util.*;
 
 public class Solution_138476 {
     public int solution(int k, int[] tangerine) {
-        long[] count = new long[100001];
+        long[] count = new long[10000001];
 
         for (int i = 0; i < tangerine.length; i++) {
             int TG = tangerine[i];
@@ -22,7 +22,7 @@ public class Solution_138476 {
 
         long sum = 0;
         int answer = 0;
-        for (int i = 100000; i >= 0; i--) {
+        for (int i = 10000000; i >= 0; i--) {
             answer++;
             sum += count[i];
             if (sum >= k) break;

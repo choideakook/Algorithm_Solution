@@ -1,6 +1,5 @@
 package org.example.solution.programers.lv2.p138476;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -25,5 +24,14 @@ class Solution_138476Test {
     void no4() {
         Solution_138476 S = new Solution_138476();
         assertThat(S.solution(1, new int[]{1})).isEqualTo(1);
+    }
+    @Test
+    void no5() {
+        Solution_138476 S = new Solution_138476();
+
+        int[] arr = new int[100000];
+        for (int i = 0; i < 99999; i++) arr[i] = 1;
+        arr[99999] = 2;
+        assertThat(S.solution(100000, arr)).isEqualTo(2);
     }
 }
