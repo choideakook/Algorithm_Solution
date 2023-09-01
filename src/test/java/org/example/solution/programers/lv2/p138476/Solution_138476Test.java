@@ -21,4 +21,9 @@ class Solution_138476Test {
         Solution_138476 S = new Solution_138476();
         assertThat(S.solution(2, new int[]{1, 1, 1, 1, 2, 2, 2, 3})).isEqualTo(1);
     }
+    @Test
+    void no4() {
+        Solution_138476 S = new Solution_138476();
+        assertThat(S.solution(1, new int[]{1})).isEqualTo(1);
+    }
 }
