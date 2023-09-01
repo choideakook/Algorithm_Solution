@@ -9,6 +9,7 @@ import java.util.*;
 
 public class Solution_76502 {
     public int solution(String s) {
+
         for (int i = 0; i < s.length(); i++) {
             if (s.charAt(i) == '(' || s.charAt(i) == '{' || s.charAt(i) == '[') {
                 String sub1 = s.substring(0, i);
@@ -18,7 +19,7 @@ public class Solution_76502 {
             }
             if (i == s.length() - 1) return 0;
         }
-        return calculator(1, s.length() - 1,  s + s);
+        return calculator(2, s.length() - 1,  s + s);
     }
     int calculator(int start, int limit, String s) {
         Stack<Character> stack = new Stack<>();
@@ -44,7 +45,7 @@ public class Solution_76502 {
         while (start <= limit) {
             char cha1 = s.charAt(start);
             char cha2 = s.charAt(start + limit);
-            start++;
+            start += 2;
 
             if (cha1 == '(' || cha1 == '{' || cha1 == '[')
                 if (cha2 == ')' || cha2 == '}' || cha2 == ']')
