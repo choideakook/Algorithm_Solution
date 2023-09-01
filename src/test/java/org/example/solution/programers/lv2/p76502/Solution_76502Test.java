@@ -33,7 +33,7 @@ class Solution_76502Test {
     @Test
     void no5() {
         Solution_76502 S = new Solution_76502();
-        assertThat(S.solution("{")).isEqualTo(0);
+        assertThat(S.solution("(((")).isEqualTo(0);
     }
     @Test
     void no6() {
@@ -43,7 +43,10 @@ class Solution_76502Test {
     @Test
     void no7() {
         Solution_76502 S = new Solution_76502();
+        Solution_76502_answer A = new Solution_76502_answer();
+
         assertThat(S.solution("{(})")).isEqualTo(0);
+        assertThat(A.solution("{(})")).isEqualTo(0);
     }
     @Test
     void no8() {
@@ -108,11 +111,28 @@ class Solution_76502Test {
         assertThat(S1.solution(param5)).isEqualTo(S2.solution(param5));
     }
     @Test
+    void no005() {
+        Solution_76502_answer S1 = new Solution_76502_answer();
+        Solution_76502 S2 = new Solution_76502();
+
+        String param1 = "{[({()}}[()]{[]}{({})[{}][({}(){}[{}])])]{[]}}({{{{{}}}}})";
+        String param2 = "({({[()[]{}(){{}()}}[{}])}{[]}){[{}]({[]})}";
+        String param3 = "[]{[()]}{{[{}}]}([]{})()";
+        String param5 = "({[({[()]}{[(){}]})[({})][()]})]())";
+
+        assertThat(S1.solution(param1)).isEqualTo(S2.solution(param1));
+        assertThat(S1.solution(param2)).isEqualTo(S2.solution(param2));
+        assertThat(S1.solution(param3)).isEqualTo(S2.solution(param3));
+
+
+        assertThat(S1.solution(param5)).isEqualTo(S2.solution(param5));
+    }
+    @Test
     void no10() {
         Solution_76502_answer S1 = new Solution_76502_answer();
         Solution_76502 S2 = new Solution_76502();
-        assertThat(S2.solution("{}[{[(())]}()]{{}}")).isEqualTo(3);
-        assertThat(S1.solution("{}[{[(())]}()]{{}}")).isEqualTo(3);
+        assertThat(S2.solution("[]{[({{{()}}}())()({[]})][{[{[()]}()()]{{}}}{}]}")).isEqualTo(2);
+        assertThat(S1.solution("[]{[({{{()}}}())()({[]})][{[{[()]}()()]{{}}}{}]}")).isEqualTo(2);
     }
     @Test
     void no11() {
