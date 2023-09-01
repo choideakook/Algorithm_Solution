@@ -5,52 +5,51 @@ package org.example.solution.programers.lv2.p76502;
  * s = String array ( 1 ~ 1,000 )
  * x = 회전 ( 0 ~ s length )
  */
+
 import java.util.*;
 
 public class Solution_76502 {
+    Stack<Character> stack = new Stack<>();
+
     public int solution(String s) {
 
+        s = strSetting(s);
+        if (s.length() == 0) return 0;
+
+        for (int i = 0; i < s.length(); i++)
+            if (!stackCal(s.charAt(i))) return 0;
+        if (!stack.isEmpty()) return 0;
+
+        int answer = 0;
+
         for (int i = 0; i < s.length(); i++) {
+            stackCal(s.charAt(i));
+            if (stack.isEmpty()) answer++;
+        }
+        return answer;
+    }
+
+    String strSetting(String s) {
+        for (int i = 0; i < s.length(); i++)
             if (s.charAt(i) == '(' || s.charAt(i) == '{' || s.charAt(i) == '[') {
                 String sub1 = s.substring(0, i);
                 String sub2 = s.substring(i);
-                s = sub2 + sub1;
-                break;
+                return sub2 + sub1;
             }
-            if (i == s.length() - 1) return 0;
-        }
-        return calculator(2, s.length() - 1,  s + s);
+        return "";
     }
-    int calculator(int start, int limit, String s) {
-        Stack<Character> stack = new Stack<>();
 
-        for (int i = 0; i <= limit; i++) {
-            char cha = s.charAt(i);
+    boolean stackCal(char cha) {
+        if (cha == '(' || cha == '{' || cha == '[')
+            stack.add(cha);
 
-            if (cha == '(' || cha == '{' || cha == '[')
-                stack.add(cha);
-
-            else {
-                if (stack.isEmpty()) return 0;
-                else if (stack.peek() == '(' && cha == ')') stack.pop();
-                else if (stack.peek() == '{' && cha == '}') stack.pop();
-                else if (stack.peek() == '[' && cha == ']') stack.pop();
-                else return 0;
-            }
+        else {
+            if (stack.isEmpty()) return false;
+            else if (stack.peek() == '(' && cha == ')') stack.pop();
+            else if (stack.peek() == '{' && cha == '}') stack.pop();
+            else if (stack.peek() == '[' && cha == ']') stack.pop();
+            else return false;
         }
-        if (!stack.isEmpty()) return 0;
-
-        int answer = 1;
-
-        while (start <= limit) {
-            char cha1 = s.charAt(start);
-            char cha2 = s.charAt(start + limit);
-            start += 2;
-
-            if (cha1 == '(' || cha1 == '{' || cha1 == '[')
-                if (cha2 == ')' || cha2 == '}' || cha2 == ']')
-                    answer++;
-        }
-        return answer;
+        return true;
     }
 }
