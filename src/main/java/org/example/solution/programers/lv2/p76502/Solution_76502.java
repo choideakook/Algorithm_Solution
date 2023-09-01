@@ -37,6 +37,8 @@ public class Solution_76502 {
                 else return 0;
             }
         }
+        if (!stack.isEmpty()) return 0;
+
         int answer = 1;
 
         while (start <= limit) {

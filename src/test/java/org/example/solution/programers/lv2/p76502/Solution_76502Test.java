@@ -7,6 +7,11 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class Solution_76502Test {
     @Test
+    void no() {
+        Solution_76502 S = new Solution_76502();
+        assertThat(S.solution("{")).isEqualTo(0);
+    }
+    @Test
     void no1() {
         Solution_76502 S = new Solution_76502();
         assertThat(S.solution("[](){}")).isEqualTo(3);
