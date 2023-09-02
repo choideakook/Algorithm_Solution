@@ -1,4 +1,4 @@
-package org.example.solution.programers.lv2.p76502;
+package org.example.solution.programers.lv2.p76502_X;
 
 import java.util.Stack;
 
