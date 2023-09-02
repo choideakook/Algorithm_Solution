@@ -23,6 +23,26 @@ class Solution_87390Test {
     @Test
     void no3() {
         Solution_87390 S = new Solution_87390();
-        assertThat(S.solution(4, 0, 4)).isEqualTo(new int[]{1, 2, 3, 4});
+        assertThat(S.solution(4, 0, 4)).isEqualTo(new int[]{1, 2, 3, 4, 2});
+    }
+    @Test
+    void no4() {
+        Solution_87390 S = new Solution_87390();
+        assertThat(S.solution(5, 20, 24)).isEqualTo(new int[]{5, 5, 5, 5, 5});
+    }
+    @Test
+    void no5() {
+        Solution_87390 S = new Solution_87390();
+        assertThat(S.solution(5, 20, 24)).isEqualTo(new int[]{5, 5, 5, 5, 5});
+    }
+    @Test
+    void no6() {
+        Solution_87390 S = new Solution_87390();
+        assertThat(S.solution(5, 20, 20)).isEqualTo(new int[]{5});
+    }
+    @Test
+    void no7() {
+        Solution_87390 S = new Solution_87390();
+        assertThat(S.solution(5, 0, 5)).isEqualTo(new int[]{1, 2, 3, 4, 5, 2});
     }
 }

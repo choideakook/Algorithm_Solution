@@ -10,7 +10,7 @@ package org.example.solution.programers.lv2.p87390;
  */
 public class Solution_87390 {
     public int[] solution(int n, long left, long right) {
-        int length = (left != 0)? (int) (right - left + 1) : (int) (right - left);
+        int length = (int) (right - left + 1);
         int[] answer = new int[length];
         int Y = (int) (left / n);
         int X = (int) (left % n);
