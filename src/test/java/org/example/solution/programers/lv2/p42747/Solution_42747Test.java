@@ -18,11 +18,16 @@ class Solution_42747Test {
     @Test
     void no3() {
         Solution_42747 S = new Solution_42747();
-        assertThat(S.solution(new int[]{0, 0, 1, 0, 0})).isEqualTo(1);
+        assertThat(S.solution(new int[]{0, 0, 1, 0, 0})).isEqualTo(0);
     }
     @Test
     void no4() {
         Solution_42747 S = new Solution_42747();
-        assertThat(S.solution(new int[]{0, 0, 2, 0, 0})).isEqualTo(0);
+        assertThat(S.solution(new int[]{0, 5, 6, 7, 8})).isEqualTo(4);
+    }
+    @Test
+    void no5() {
+        Solution_42747 S = new Solution_42747();
+        assertThat(S.solution(new int[]{6, 5, 5, 5, 3, 2, 1, 0})).isEqualTo(4);
     }
 }

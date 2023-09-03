@@ -11,15 +11,18 @@ import java.util.*;
 public class Solution_42747 {
     public int solution(int[] citations) {
         Arrays.sort(citations);
-        int length = citations.length;
+        int pointer = citations.length;
+        int index = pointer - 1;
+        int over = 0;
 
-        for (int over = 1; over <= length; over++) {
-            int index = length - over;
-            int under = index + 1;
-
-            if (citations[index] <= over && citations[index] >= under)
-                return citations[index];
+        while (true) {
+            if (over >= pointer && index <= pointer)
+                return pointer;
+            else if(citations[index] >= pointer) {
+                index--;
+                over++;
+            }
+            else if (citations[index] < pointer) pointer --;
         }
-        return 0;
     }
 }
