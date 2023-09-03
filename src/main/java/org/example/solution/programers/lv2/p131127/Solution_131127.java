@@ -19,39 +19,31 @@ public class Solution_131127 {
             target.put(want[i], number[i]);
             sale.put(want[i], 0);
         }
-
         for (int i = 0; i < 10; i++)
-            for (int j = 0; j < want.length; j++)
-                if (targetCheck(want[j], discount[i], 1)) break;
+            targetCheck(discount[i], 1);
 
         if (sum == 10)
             if (answerCheck()) answer++;
 
         for (int i = 0; i < discount.length - 10; i++) {
-            for (int j = 0; j < want.length; j++)
-                if (targetCheck(want[j], discount[i], - 1)) break;
-
-            for (int j = 0; j < want.length; j++)
-                if (targetCheck(want[j], discount[i + 10], 1)) break;
+            targetCheck(discount[i], - 1);
+            targetCheck(discount[i + 10], 1);
 
             if (sum == 10)
                 if (answerCheck()) answer++;
         }
         return answer;
     }
-    boolean targetCheck(String want, String product, int count) {
-        if (want.equals(product)) {
+    void targetCheck(String product, int count) {
+        if (sale.containsKey(product)) {
             sale.put(product, sale.get(product) + count);
             sum += count;
-            return true;
         }
-        return false;
     }
     boolean answerCheck() {
-        for (String key : target.keySet()) {
+        for (String key : target.keySet())
             if (target.get(key) != sale.get(key))
                 return false;
-        }
         return true;
     }
 }
