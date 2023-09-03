@@ -13,7 +13,7 @@ import java.util.*;
 public class Solution_131127 {
     Map<String, Integer> target = new HashMap<>();
     Map<String, Integer> sale = new HashMap<>();
-    int sum = 0;
+    int sum = 0, answer = 0;
     public int solution(String[] want, int[] number, String[] discount) {
         for (int i = 0; i < want.length; i++) {
             target.put(want[i], number[i]);
@@ -25,7 +25,7 @@ public class Solution_131127 {
                 if (targetCheck(want[j], discount[i], 1)) break;
 
         if (sum == 10)
-            if (answerCheck()) return 1;
+            if (answerCheck()) answer++;
 
         for (int i = 0; i < discount.length - 10; i++) {
             for (int j = 0; j < want.length; j++)
@@ -35,9 +35,9 @@ public class Solution_131127 {
                 if (targetCheck(want[j], discount[i + 10], 1)) break;
 
             if (sum == 10)
-                if (answerCheck()) return i + 2;
+                if (answerCheck()) answer++;
         }
-        return 0;
+        return answer;
     }
     boolean targetCheck(String want, String product, int count) {
         if (want.equals(product)) {

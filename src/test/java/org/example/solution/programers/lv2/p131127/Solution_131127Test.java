@@ -18,7 +18,7 @@ class Solution_131127Test {
         Solution_131127 S = new Solution_131127();
         String[] want = {"apple"};
         int[] num = {10};
-        String[] discount = {"banana", "banana", "banana", "banana", "banana", "banana", "banana", "banana", "banana", "banana"};
+        String[] discount = {"banana", "banana", "banana", "banana", "apple", "banana", "banana", "banana", "banana", "banana", "banana"};
         assertThat(S.solution(want, num, discount)).isEqualTo(0);
     }
 }
