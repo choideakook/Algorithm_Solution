@@ -61,4 +61,12 @@ class Solution_17680Test {
         int answer = 14;
         assertThat(S.solution(size, cities)).isEqualTo(answer);
     }
+    @Test
+    void no8() {
+        Solution_17680 S = new Solution_17680();
+        int size = 2;
+        String[] cities = {"a", "a", "a", "b", "b", "b", "c", "c", "c"};
+        int answer = 21;
+        assertThat(S.solution(size, cities)).isEqualTo(answer);
+    }
 }

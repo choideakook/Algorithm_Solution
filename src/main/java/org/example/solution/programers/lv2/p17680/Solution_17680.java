@@ -10,17 +10,21 @@ import java.util.*;
 
 public class Solution_17680 {
     public int solution(int cacheSize, String[] cities) {
-        Queue<String> Q = new LinkedList<>();
+        ArrayList<String> list = new ArrayList<>();
         int answer = 0;
 
         for (int i = 0; i < cities.length; i++) {
             String city = cities[i].toLowerCase();
 
-            if (Q.contains(city)) answer++;
+            if (list.contains(city)) {
+                answer++;
+                list.remove(city);
+            }
             else answer += 5;
 
-            Q.add(city);
-            if (Q.size() > cacheSize) Q.poll();
+            list.add(city);
+            if (list.size() > cacheSize)
+                list.remove(0);
         }
         return answer;
     }
