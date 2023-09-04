@@ -17,11 +17,10 @@ public class Solution_17680 {
             String city = cities[i].toLowerCase();
 
             if (Q.contains(city)) answer++;
-            else {
-                answer += 5;
-                Q.add(city);
-                if (Q.size() > cacheSize) Q.poll();
-            }
+            else answer += 5;
+
+            Q.add(city);
+            if (Q.size() > cacheSize) Q.poll();
         }
         return answer;
     }

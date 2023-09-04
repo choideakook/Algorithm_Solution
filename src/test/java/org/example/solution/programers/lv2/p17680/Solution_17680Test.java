@@ -44,12 +44,21 @@ class Solution_17680Test {
         String[] cities = {"Jeju", "Pangyo", "NewYork", "newyork"};
         int answer = 16;
         assertThat(S.solution(size, cities)).isEqualTo(answer);
-    }@Test
+    }
+    @Test
     void no6() {
         Solution_17680 S = new Solution_17680();
         int size = 0;
         String[] cities = {"Jeju", "Pangyo", "Seoul", "NewYork", "LA"};
         int answer = 25;
+        assertThat(S.solution(size, cities)).isEqualTo(answer);
+    }
+    @Test
+    void no7() {
+        Solution_17680 S = new Solution_17680();
+        int size = 3;
+        String[] cities = {"1","2","1","1","1","1"};
+        int answer = 14;
         assertThat(S.solution(size, cities)).isEqualTo(answer);
     }
 }
