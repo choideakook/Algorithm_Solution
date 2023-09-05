@@ -34,7 +34,7 @@ public class Solution_42587 {
         Collections.sort(list[i], new Comparator<Integer>() {
             @Override
             public int compare(Integer a, Integer b) {
-                if (a > start && b > start)
+                if (a >= start && b >= start)
                     return a.compareTo(b);
                 else if (a < start && b < start)
                     return a.compareTo(b);

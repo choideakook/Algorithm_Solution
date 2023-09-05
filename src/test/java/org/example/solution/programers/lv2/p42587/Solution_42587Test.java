@@ -17,4 +17,10 @@ class Solution_42587Test {
         int[] pri = {1, 1, 9, 1, 1, 1};
         assertThat(S.solution(pri, 0)).isEqualTo(5);
     }
+    @Test
+    void no3() {
+        Solution_42587 S = new Solution_42587();
+        int[] pri = {1, 1, 1, 1, 1, 1};
+        assertThat(S.solution(pri, 3)).isEqualTo(4);
+    }
 }
