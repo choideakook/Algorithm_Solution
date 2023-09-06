@@ -37,5 +37,20 @@ class Solution_17677Test {
         int answer = 65536;
         assertThat(S.solution(str1, str2)).isEqualTo(answer);
     }
-
+    @Test
+    void no5() {
+        Solution_17677 S = new Solution_17677();
+        String str1 = "AAbbaa_AAbb";
+        String str2 = "BBB";
+        int answer = 16384;
+        assertThat(S.solution(str1, str2)).isEqualTo(answer);
+    }
+    @Test
+    void no6() {
+        Solution_17677 S = new Solution_17677();
+        String str1 = "abab";
+        String str2 = "baba";
+        int answer = 32768;
+        assertThat(S.solution(str1, str2)).isEqualTo(answer);
+    }
 }

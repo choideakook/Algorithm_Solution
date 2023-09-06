@@ -29,7 +29,8 @@ public class Solution_17677 {
             compare(Q1.peek(), Q2.peek());
         }
 
-        if (inter == 0) return 65536;
+        if (inter == 0 && union == 0) return 65536;
+        if (inter == 0 && union > 0) return 0;
         return (int) Math.floor((inter / union) * 65536);
     }
     void addQueue(String str, int q) {
