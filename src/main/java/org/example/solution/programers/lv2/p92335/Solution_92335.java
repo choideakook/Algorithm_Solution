@@ -16,13 +16,14 @@ public class Solution_92335 {
         for (int i = 0; i < split.length; i++) {
             if (split[i].equals("")) continue;
             long num = Long.parseLong(split[i]);
-            boolean check = false;
+            boolean check = true;
 
-            for (int j = 2; j < num; j++) {
-                if (num % j == 0) break;
-                if (j + 1 == num) check = true;
-            }
-            if (check || num == 2) answer++;
+            for (int j = 2; j <= (int) Math.sqrt(num); j++)
+                if (num % j == 0) {
+                    check = false;
+                    break;
+                }
+            if (check && num != 1) answer++;
         }
         return answer;
     }
