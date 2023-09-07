@@ -15,7 +15,7 @@ public class Solution_92335 {
         int answer = 0;
         for (int i = 0; i < split.length; i++) {
             if (split[i].equals("")) continue;
-            int num = Integer.parseInt(split[i]);
+            long num = Long.parseLong(split[i]);
             boolean check = false;
 
             for (int j = 2; j < num; j++) {
