@@ -2,7 +2,6 @@ package org.example.solution.programers.lv2.p84512;
 
 /**
  * 모음사전
- *
  */
 
 public class Solution_84512 {
