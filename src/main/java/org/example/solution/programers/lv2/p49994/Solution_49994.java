@@ -17,11 +17,12 @@ public class Solution_49994 {
     int[] move(int[] now, String move) {
         int Y = now[0];
         int X = now[1];
+        String back = "";
         switch (move) {
-            case "U" -> Y += 1;
-            case "D" -> Y -= 1;
-            case "R" -> X += 1;
-            default -> X -= 1;
+            case "U" -> {Y += 1; back = "D";}
+            case "D" -> {Y -= 1; back = "U";}
+            case "R" -> {X += 1; back = "L";}
+            default -> {X -= 1; back = "R";}
         }
         if (visited[now[0]][now[1]] == null) visited[now[0]][now[1]] = "";
         if (visited[now[0]][now[1]].indexOf(move) != -1)
@@ -33,6 +34,8 @@ public class Solution_49994 {
         ) {
             count++;
             visited[now[0]][now[1]] += move;
+            if (visited[Y][X] == null) visited[Y][X] = "";
+            visited[Y][X] += back;
             return new int[]{Y, X};
         }
         else return now;
