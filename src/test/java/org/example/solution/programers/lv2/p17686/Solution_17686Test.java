@@ -26,4 +26,18 @@ class Solution_17686Test {
         String[] ans = {"F13", "F16", "S1"};
         assertThat(S.solution(fil)).isEqualTo(ans);
     }
+    @Test
+    void no4() {
+        Solution_17686 S = new Solution_17686();
+        String[] fil = {"O00321", "O49qcGPHuRLR5FEfoO00321"};
+        String[] ans = {"O49qcGPHuRLR5FEfoO00321", "O00321"};
+        assertThat(S.solution(fil)).isEqualTo(ans);
+    }
+    @Test
+    void no5() {
+        Solution_17686 S = new Solution_17686();
+        String[] fil = {"img12.pn1g", "img10.pn2g", "img02.pn3g", "img1.pn4g", "IMG01.GI5F", "img2.JP6G"};
+        String[] ans = {"img1.pn4g", "IMG01.GI5F", "img02.pn3g", "img2.JP6G", "img10.pn2g", "img12.pn1g"};
+        assertThat(S.solution(fil)).isEqualTo(ans);
+    }
 }

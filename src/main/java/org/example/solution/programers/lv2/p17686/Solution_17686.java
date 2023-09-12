@@ -13,7 +13,7 @@ public class Solution_17686 {
         PriorityQueue<File> Q = new PriorityQueue<>((a, b) -> {
             if (a.head.equals(b.head))
                 return a.num - b.num;
-            return a.head.compareTo(b.head);
+            return (a.head).compareTo(b.head);
         });
 
         for (int i = 0; i < files.length; i++)
@@ -31,7 +31,7 @@ class File {
     String file, head;
     int num;
 
-    public File(String file) {
+    File(String file) {
         String[] split = this.split(file);
         this.file = file;
         this.head = split[0].toLowerCase();
@@ -39,21 +39,15 @@ class File {
     }
 
     String[] split(String file) {
-        String[] split = new String[2];
-        int num = 0;
-
-        for (int i = 0; i < file.length(); i++) {
-            char cha = file.charAt(i);
-            if (split[0] == null && cha >= '0' && cha <= '9') {
-                split[0] = file.substring(0, i);
-                num = i;
-            }
-            else if (split[0] != null && (cha < '0' || cha > '9')) {
-                split[1] = file.substring(num, i);
+        String[] head = file.split("[0-9]");
+        String[] num = file.split("[^0-9]");
+        String[] result = new String[2];
+        result[0] = head[0];
+        for (String str : num)
+            if (!str.equals("")) {
+                result[1] = str;
                 break;
             }
-        }
-        if (split[1] == null) split[1] = file.substring(num);
-        return split;
+        return result;
     }
 }
