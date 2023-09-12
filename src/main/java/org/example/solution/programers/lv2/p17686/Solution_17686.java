@@ -28,7 +28,7 @@ public class Solution_17686 {
 }
 
 class File {
-    String head, file;
+    String file, head;
     int num;
 
     public File(String file) {
@@ -53,6 +53,7 @@ class File {
                 break;
             }
         }
+        if (split[1] == null) split[1] = file.substring(num);
         return split;
     }
 }

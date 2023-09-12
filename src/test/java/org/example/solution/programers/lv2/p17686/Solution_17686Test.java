@@ -19,4 +19,11 @@ class Solution_17686Test {
         String[] ans = {"A-10 Thunderbolt II", "B-50 Superfortress", "F-5 Freedom Fighter", "F-14 Tomcat"};
         assertThat(S.solution(fil)).isEqualTo(ans);
     }
+    @Test
+    void no3() {
+        Solution_17686 S = new Solution_17686();
+        String[] fil = {"F16", "F13", "S1"};
+        String[] ans = {"F13", "F16", "S1"};
+        assertThat(S.solution(fil)).isEqualTo(ans);
+    }
 }
