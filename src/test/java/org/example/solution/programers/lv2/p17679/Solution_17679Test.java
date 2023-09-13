@@ -33,4 +33,19 @@ class Solution_17679Test {
         int ans = 15;
         assertThat(S.solution(m, n, boa)).isEqualTo(ans);
     }
+    @Test
+    void no3() {
+        Solution_17679 S = new Solution_17679();
+        int m = 6;
+        int n = 6;
+        String[] boa = {
+                "IIIIOO",
+                "IIIOOO",
+                "IIIOOI",
+                "IOOIII",
+                "OOOIII",
+                "OOIIII"};
+        int ans = 32;
+        assertThat(S.solution(m, n, boa)).isEqualTo(ans);
+    }
 }
