@@ -10,7 +10,7 @@ import java.util.*;
 
 public class Solution_17679 {
     ArrayList<Character>[] maps;
-    int[][] dij = {{1, 0}, {0, -1}, {1, -1}};
+    int[][] dij = {{1, 0}, {0, 1}, {1, 1}};
     int answer, Y, X;
     boolean[][] smash;
 
@@ -35,8 +35,8 @@ public class Solution_17679 {
     void bockRemover() {
         smash = new boolean[X][Y];
         for (int i = 0; i < X - 1; i++)
-            for (int j = 1; j < Y; j++)
-                DFS(i, j);
+            for (int j = 0; j < Y - 1; j++)
+                if (!smash[i][j]) DFS(i, j);
         for (int i = 0; i < maps.length; i++)
             for (int j = maps[i].size() - 1; j >= 0; j--)
                 if (smash[i][j]) {
@@ -55,21 +55,20 @@ public class Solution_17679 {
 
     boolean isSmash(int i, int j) {
         if (
-                j == 0 ||
                 i + 1 == maps.length ||
-                j >= maps[i].size() ||
-                j >= maps[i + 1].size()
+                j + 1 >= maps[i].size() ||
+                j + 1 >= maps[i + 1].size()
         ) return false;
 
-        return maps[i].get(j) == maps[i].get(j - 1) &&
-                maps[i + 1].get(j) == maps[i + 1].get(j - 1) &&
+        return maps[i].get(j) == maps[i].get(j + 1) &&
+                maps[i + 1].get(j) == maps[i + 1].get(j + 1) &&
                 maps[i].get(j) == maps[i + 1].get(j);
     }
 
     void trueOn(int i, int j) {
         smash[i][j] = true;
         smash[i + 1][j] = true;
-        smash[i][j - 1] = true;
-        smash[i + 1][j - 1] = true;
+        smash[i][j + 1] = true;
+        smash[i + 1][j + 1] = true;
     }
 }
