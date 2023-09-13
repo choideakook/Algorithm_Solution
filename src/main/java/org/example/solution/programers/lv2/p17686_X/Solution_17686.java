@@ -1,4 +1,4 @@
-package org.example.solution.programers.lv2.p17686;
+package org.example.solution.programers.lv2.p17686_X;
 
 /**
  * [3차] 파일명 정렬
@@ -11,9 +11,12 @@ import java.util.*;
 public class Solution_17686 {
     public String[] solution(String[] files) {
         PriorityQueue<File> Q = new PriorityQueue<>((a, b) -> {
-            if (a.head.equals(b.head))
+            if (a.head.equals(b.head)) {
+                if (a.num == b.num)
+                    return 0;
                 return a.num - b.num;
-            return (a.head).compareTo(b.head);
+            }
+            return (a.head).compareToIgnoreCase(b.head);
         });
 
         for (int i = 0; i < files.length; i++)

@@ -1,4 +1,4 @@
-package org.example.solution.programers.lv2.p17686;
+package org.example.solution.programers.lv2.p17686_X;
 
 import org.junit.jupiter.api.Test;
 
@@ -38,6 +38,13 @@ class Solution_17686Test {
         Solution_17686 S = new Solution_17686();
         String[] fil = {"img12.pn1g", "img10.pn2g", "img02.pn3g", "img1.pn4g", "IMG01.GI5F", "img2.JP6G"};
         String[] ans = {"img1.pn4g", "IMG01.GI5F", "img02.pn3g", "img2.JP6G", "img10.pn2g", "img12.pn1g"};
+        assertThat(S.solution(fil)).isEqualTo(ans);
+    }
+    @Test
+    void no6() {
+        Solution_17686 S = new Solution_17686();
+        String[] fil = {"img12.png", "img10.png", "img02.png", "img1.png", "IMG01.GIF", " img2.JPG"};
+        String[] ans = {" img2.JPG", "img1.png", "IMG01.GIF", "img02.png", "img10.png", "img12.png"};
         assertThat(S.solution(fil)).isEqualTo(ans);
     }
 }
