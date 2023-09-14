@@ -26,8 +26,7 @@ public class Solution_132265 {
     }
 
     void putIndex(Map<Integer, Integer> map, int key) {
-        if (map.containsKey(key)) map.put(key, map.get(key) + 1);
-        else map.put(key, 1);
+        map.put(key, map.getOrDefault(key, 0) + 1);
     }
     void removeIndex(Map<Integer, Integer> map, int key) {
         if (map.get(key) == 1) map.remove(key);
