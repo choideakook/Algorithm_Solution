@@ -1,4 +1,4 @@
-package org.example.solution.programers.lv2.p17679;
+package org.example.solution.programers.lv2.p17679_x;
 
 /**
  * 프렌즈 4블록
