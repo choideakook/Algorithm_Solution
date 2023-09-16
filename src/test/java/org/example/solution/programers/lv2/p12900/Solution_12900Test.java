@@ -12,4 +12,11 @@ class Solution_12900Test {
         int a = 5;
         assertThat(S.solution(n)).isEqualTo(a);
     }
+    @Test
+    void no2() {
+        Solution_12900 S = new Solution_12900();
+        int n = 52;
+        int a = 316290802;
+        assertThat(S.solution(n)).isEqualTo(a);
+    }
 }
