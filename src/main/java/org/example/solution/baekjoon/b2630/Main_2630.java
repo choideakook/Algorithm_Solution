@@ -18,14 +18,20 @@ public class Main_2630 {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         N = Integer.parseInt(br.readLine());
         map = new int[N][N];
+        boolean check = true;
         StringTokenizer st;
 
         for (int i = 0; i < N; i++) {
             st = new StringTokenizer(br.readLine());
-            for (int j = 0; j < N; j++)
+            for (int j = 0; j < N; j++) {
                 map[i][j] = Integer.parseInt(st.nextToken());
+                if (map[0][0] != map[i][j]) check = false;
+            }
         }
-        int[] result = zip(new int[]{0, 0}, new int[]{N, N});
+        int[] result = new int[2];
+
+        if (check) result[map[0][0]]++;
+        else result = zip(new int[]{0, 0}, new int[]{N, N});
         System.out.println(result[0]);
         System.out.println(result[1]);
     }
