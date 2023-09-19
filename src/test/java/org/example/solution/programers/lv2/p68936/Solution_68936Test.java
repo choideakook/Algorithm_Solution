@@ -33,4 +33,14 @@ class Solution_68936Test {
         int[] ans = {10, 15};
         assertThat(S.solution(arr)).isEqualTo(ans);
     }
+    @Test
+    void no3() {
+        Solution_68936 S = new Solution_68936();
+        int[][] arr = {
+                {1,1},
+                {1,1}
+        };
+        int[] ans = {0, 1};
+        assertThat(S.solution(arr)).isEqualTo(ans);
+    }
 }
