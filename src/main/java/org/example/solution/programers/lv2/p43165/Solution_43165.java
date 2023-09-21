@@ -6,7 +6,6 @@ package org.example.solution.programers.lv2.p43165;
  * index ( 1 ~ 50 )
  * target ( 1 ~ 1,000 )
  */
-import java.util.*;
 
 public class Solution_43165 {
     int[] arr;
