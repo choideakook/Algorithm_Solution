@@ -9,21 +9,23 @@ package org.example.solution.baekjoon.backTracking.b2661;
 import java.util.*;
 
 public class Main_2661 {
-    static int N;
-    static StringBuilder sb = new StringBuilder("12");
-    static String index = "1";
+    int N;
+    StringBuilder sb = new StringBuilder("12");
+    String index = "1";
 
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        N = sc.nextInt();
-        if (N == 1) System.out.println(1);
+    public String mmain(int n) {
+//        Scanner sc = new Scanner(System.in);
+        N = n;
+        if (N == 1) return "1";
+//            System.out.println(1);
         else {
             DFS("2", index);
-            System.out.println(sb);
+            return sb.toString();
+//            System.out.println(sb);
         }
     }
 
-    static boolean DFS(String key, String value) {
+    boolean DFS(String key, String value) {
         int aSize = sb.length();
 
         if (N == aSize) return true;
@@ -55,7 +57,7 @@ public class Main_2661 {
         return true;
     }
 
-    static void indexAdder() {
+    void indexAdder() {
         switch (index) {
             case "1" -> index = "2";
             case "2" -> index = "3";
@@ -63,7 +65,7 @@ public class Main_2661 {
         }
     }
 
-    static String indexReset() {
+    String indexReset() {
         index = "1";
         return index;
     }
