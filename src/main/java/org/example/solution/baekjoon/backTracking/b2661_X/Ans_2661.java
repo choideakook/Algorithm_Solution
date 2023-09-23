@@ -1,6 +1,4 @@
-package org.example.solution.baekjoon.backTracking.b2661;
-
-import java.util.Scanner;
+package org.example.solution.baekjoon.backTracking.b2661_X;
 
 public class Ans_2661 {
     int start = 1;

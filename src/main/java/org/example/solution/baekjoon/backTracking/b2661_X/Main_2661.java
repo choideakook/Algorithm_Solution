@@ -1,12 +1,10 @@
-package org.example.solution.baekjoon.backTracking.b2661;
+package org.example.solution.baekjoon.backTracking.b2661_X;
 
 /**
  * 좋은 수열
  * 시간 1초
  * N[] ( 1 ~ 80 )
  */
-
-import java.util.*;
 
 public class Main_2661 {
     int N;

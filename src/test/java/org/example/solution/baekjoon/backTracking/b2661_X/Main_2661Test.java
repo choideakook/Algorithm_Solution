@@ -1,4 +1,4 @@
-package org.example.solution.baekjoon.backTracking.b2661;
+package org.example.solution.baekjoon.backTracking.b2661_X;
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
