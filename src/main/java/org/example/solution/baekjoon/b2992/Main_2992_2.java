@@ -13,9 +13,10 @@ public class Main_2992_2 {
         BufferedReader sb = new BufferedReader(new InputStreamReader(System.in));
         str = sb.readLine();
         X = Integer.parseInt(str);
+        visit = new boolean[str.length() + 1];
+
         ogs = new int[str.length()];
         arr = new int[str.length()];
-        visit = new boolean[str.length() + 1];
         for (int i = 0; i < str.length(); i++) {
             ogs[i] = str.charAt(i) - '0';
             arr[i] = str.charAt(i) - '0';
@@ -23,8 +24,8 @@ public class Main_2992_2 {
         Arrays.sort(arr);
 
         for (int i = 0; i < arr.length; i++) {
-            BT(i);
             if (visit[arr.length]) break;
+            BT(i);
         }
 
         if (!visit[arr.length])
