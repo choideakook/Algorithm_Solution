@@ -155,7 +155,7 @@
       <updated>1700313896995</updated>
       <workItem from="1700313898380" duration="9979000" />
       <workItem from="1700454155294" duration="6859000" />
-      <workItem from="1700643198155" duration="3130000" />
+      <workItem from="1700643198155" duration="3806000" />
     </task>
     <servers />
   </component>
@@ -169,6 +169,11 @@
           <properties class="java.lang.ArrayIndexOutOfBoundsException" package="java.lang" />
           <option name="timeStamp" value="6" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/solution/baekjoon/dfs_bfs/b1697/Main_1697.java</url>
+          <line>24</line>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

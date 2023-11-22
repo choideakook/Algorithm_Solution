@@ -33,7 +33,7 @@ public class Main_1697 {
             int add = now + 1;
 
             if (min >= 0 && visit[min] == 0) move(min, now);
-            if (now % 2 == 0 && visit[mul] == 0) move(mul, now);
+            if (now % 2 == 0 && mul != 0 && visit[mul] == 0) move(mul, now);
             if (add < 100001 && visit[add] == 0) move(add, now);
         }
     }
